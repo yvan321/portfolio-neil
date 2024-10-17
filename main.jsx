@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from '/src/App.jsx';
+import App from './App.jsx'; // Adjusted import
 import './index.css';
 import { ThemeProvider } from './common/ThemeContext.jsx';
 
