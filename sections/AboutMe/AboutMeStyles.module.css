@@ -1,0 +1,125 @@
+:root {
+  --background-color: #FCFFF9;
+  --text-color: #222;
+  --btn-color: #C21807;
+  --glow-color-light: rgba(173, 2, 2, 0.8);
+  --shadow-color-light: rgba(255, 69, 0, 0.5);
+}
+
+[data-theme='dark'] {
+  --background-color: #000000;
+  --text-color: #fff;
+  --btn-color: #fff;
+  --glow-color-light: rgba(255, 69, 0, 0.8); /* Fiery glow in dark mode */
+  --shadow-color-light: rgba(255, 0, 0, 0.5);
+}
+
+body {
+  margin: 0;
+  margin-top: 100px;
+  height: 200vh; /* Increase height to allow scrolling */
+  background-color: var(--background-color);
+}
+
+
+
+.container {
+  margin-top: 100px;
+
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 1000px; /* Full height for centering */
+  justify-content: center;
+  align-items: center; /* Center items */
+  position: relative;
+  background-image: url('../../assets/moonbg.svg'); /* Background image */
+  background-size: cover; /* Cover the entire section */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent repeating */
+  opacity: 0.8; /* Optional: adjust opacity */
+  padding: 20px; /* Optional: add padding */
+}
+
+
+:root .sectionTitle{
+
+
+
+}
+
+.sectionTitle {
+  font-family: 'Rubik', sans-serif;
+  font-size: 48px;
+  text-transform: uppercase;
+  color: var(--text-color);
+  position: sticky;
+  top: 20%;
+  display: inline-block;
+  margin-bottom: 5px;
+  
+}
+
+
+
+.description {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--text-color);
+  max-width: 75%;
+  margin: auto;
+  padding: 20px;
+  background-color: rgba(255, 69, 0, 0.1); /* Light fiery glow */
+  border-radius: 5px;
+  box-shadow: 
+    0 0 20px var(--glow-color-light), 
+    0 0 50px rgba(255, 0, 0, 0.5), 
+    0 0 100px rgba(255, 0, 0, 0.3);
+  animation: fire-flicker 1.5s infinite ease-in-out;
+}
+
+:root .description{
+    font-weight: 1000;
+
+}
+
+[data-theme='dark'] .description{
+  font-weight: 300;
+
+}
+
+
+
+
+
+/* Fire Flickering and Glow Effects */
+@keyframes fire-glow {
+  0%, 100% {
+    text-shadow: 
+      0 0 10px var(--glow-color-light), 
+      0 0 20px rgba(255, 69, 0, 0.5), 
+      0 0 30px rgba(255, 69, 0, 0.3);
+  }
+  50% {
+    text-shadow: 
+      0 0 15px rgba(255, 69, 0, 1), 
+      0 0 30px rgba(253, 217, 61, 0.95), 
+      0 0 45px rgba(255, 0, 0, 0.6);
+  }
+}
+
+@keyframes fire-flicker {
+  0%, 100% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  75% {
+    opacity: 0.95;
+  }
+}

@@ -1,0 +1,749 @@
+:root {
+  --background-color: #FCFFF9;
+  --btn-color: #C21807;
+  --btn-text-color: #fff;
+  --project-card-bg: #ffffff00;
+  --text-color: #222;
+  --form-text-color: #555;
+  --footer-text-color: #888;
+}
+
+:root button:hover {
+  background-color: #000000;
+  color: #FCFFF9;
+  transform: scale(1.05);
+  transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
+  cursor: pointer;
+}
+
+[data-theme='dark'] {
+  --background-color: #000000;
+  --btn-color: #fff;
+  --btn-text-color: #C21807;
+  --project-card-bg: #fff;
+  --text-color: #fff;
+  --form-text-color: #fff;
+  --footer-text-color: #bbb;
+}
+
+[data-theme='dark'] button:hover {
+  background-color: #C21807;
+  color: #FCFFF9;
+  transform: scale(1.05);
+  transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
+  cursor: pointer;
+}
+
+[data-theme='dark'] .backToTop:hover {
+  background-color: transparent;
+}
+
+:root .backToTop:hover {
+  background-color: transparent;
+}
+
+header {
+  background-color: var(--text-color);
+  color: #FCFFF9;
+  font-family: 'Rubik', sans-serif;
+  margin-top: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 9%;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000; 
+  border-bottom: 3px solid rgb(228, 228, 228);
+  transition: top 0.3s ease-in-out; 
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25); 
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply fade-in to container */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  text-align: center;
+  height: 90vh;
+  min-height: 500px;
+  padding-top: 120;
+  margin-bottom: 0%;
+  animation: fadeIn 1s ease-out forwards;
+  opacity: 0; 
+}
+
+.logo {
+  font-size: 30px;
+  color: var(--background-color);
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.5s ease; 
+  margin-right: 0;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+.themeToggle {
+  background-color: transparent; 
+  border: none;
+  cursor: pointer;
+}
+
+/* Rotate Animation for Color Mode Icon */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.colorMode:hover {
+  animation: rotate 0.6s linear;
+}
+
+.hero {
+  max-width: 200px;
+}
+
+span {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+}
+
+span a {
+  margin: 0;
+}
+
+.typingtext span {
+  display: inline-block;
+  border-right: 2px solid red;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: blink-caret 0.75s step-end infinite, wordFade 12s infinite;
+}
+
+/* Keyframes for word fade animation */
+@keyframes wordFade {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes blink-caret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+span a img {
+  width: 30px;
+  transition: transform 0.3s ease; /* Added transition for hover animation */
+}
+
+span a:hover img {
+  transform: scale(1.2); /* Scale up on hover */
+}
+
+a {
+  width: fit-content;
+  align-self: center;
+  text-decoration: none; 
+}
+
+button {
+  background-color: var(--btn-color);
+  color: var(--btn-text-color);
+  border: none;
+  border-radius: 20px;
+  width: 126px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
+}
+
+button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.colorModeContainer {
+  position: relative;
+}
+
+.backToTop button{
+  background-color: none;
+}
+
+.description {
+  max-width: 24ch;
+  font-weight: 300;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Back-to-Top Button Appearance Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.backToTop {
+  position: fixed;
+  height: 60px;
+  width: 60px;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.backToTop img {
+  height: 50px;
+  width: 50px;
+}
+
+.backToTop:hover {
+  transform: scale(1.1); /* Added scaling on hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Existing Media Queries... */
+
+/* Desktop */
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+  header {
+    background-color: var(--text-color);
+    color: #FCFFF9;
+    font-family: 'Rubik', sans-serif;
+    margin-top: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 9%;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000; 
+    border-bottom: 3px solid rgb(228, 228, 228);
+    transition: top 0.3s ease-in-out; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25); 
+  }
+
+  header nav a{
+    font-size: 15px;
+  }
+
+  header nav{
+    margin-right: 130px;;
+  }
+  
+  /* Fade-In Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Apply fade-in to container */
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+    height: 90vh;
+    min-height: 500px;
+    padding-top: 120;
+    margin-bottom: 0%;
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 0; 
+  }
+  
+  .logo {
+    font-size: 20px;
+    color: var(--background-color);
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.5s ease; 
+    margin-right: 0;
+  }
+  
+  .logo:hover {
+    transform: scale(1.1);
+  }
+  
+  .themeToggle {
+    background-color: transparent; 
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Rotate Animation for Color Mode Icon */
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .colorMode:hover {
+    animation: rotate 0.6s linear;
+  }
+  
+  .hero {
+    max-width: 200px;
+  }
+  
+  span {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+  }
+  
+  span a {
+    margin: 0;
+  }
+  
+  .typingtext span {
+    display: inline-block;
+    border-right: 2px solid red;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: blink-caret 0.75s step-end infinite, wordFade 12s infinite;
+  }
+  
+  /* Keyframes for word fade animation */
+  @keyframes wordFade {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    10% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    90% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+  }
+  
+  @keyframes blink-caret {
+    50% {
+      border-color: transparent;
+    }
+  }
+  
+  span a img {
+    width: 30px;
+    transition: transform 0.3s ease; /* Added transition for hover animation */
+  }
+  
+  span a:hover img {
+    transform: scale(1.2); /* Scale up on hover */
+  }
+  
+  a {
+    width: fit-content;
+    align-self: center;
+    text-decoration: none; 
+  }
+  
+  button {
+    background-color: var(--btn-color);
+    color: var(--btn-text-color);
+    border: none;
+    border-radius: 20px;
+    width: 126px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
+  }
+  
+  button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+  }
+  
+  .colorModeContainer {
+    position: relative;
+  }
+  
+  .backToTop button{
+    background-color: none;
+  }
+  
+  .description {
+    max-width: 24ch;
+    font-weight: 300;
+  }
+  
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Back-to-Top Button Appearance Animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .backToTop {
+    position: fixed;
+    height: 60px;
+    width: 60px;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    animation: fadeInUp 0.5s ease-out;
+  }
+  
+  .backToTop img {
+    height: 50px;
+    width: 50px;
+  }
+  
+  .backToTop:hover {
+    transform: scale(1.1); /* Added scaling on hover */
+  }
+}
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 767px) {
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    text-align: center;
+    height: auto;
+    min-height: 500px;
+    margin-bottom: 10%;
+  }
+  
+  .header{
+    height: 40px;
+    
+  }
+
+  .hero {
+    padding-top: 100px;
+    margin-left: 0; 
+    width: 100%; 
+  }
+
+  .colorMode {
+    margin-right: 0; /* Remove or adjust the margin-right to center the color mode icon */
+    height: 30px;
+  }
+
+  .description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px; /* Add padding if needed to improve spacing on smaller screens */
+  }
+
+  nav {
+    position: fixed;
+    display: none; /* Initially hidden */
+    padding-top: 50px;
+    width: 30%; 
+    margin-top: 100px; 
+    right: 0;
+    margin-right: 20%;
+    height: 70dvh; /* Size of the nav */
+    border: 3px solid #d60000;
+    border-radius: 2rem;
+    background-color: var(--text-color);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    overflow-y: auto;
+    z-index: 999;
+  }
+
+  /* Show the nav when the active class is toggled */
+  nav.active {
+    display: flex; /* Show the nav when active */
+    transform: translateX(0); /* Slide into view */
+  }
+
+  nav a {
+    padding: 10px;
+    display: block;
+    font-size: 20px;
+    color: var(--background-color); /* Changed to match theme */
+    text-align: center;
+    margin: 0;
+    
+    transition: color 0.3s ease-in-out;
+  }
+
+  nav a:hover {
+    color: #cccccc;
+  }
+
+  /* Display the mobile menu button */
+  .nav-btn {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    font-size: 1.8rem;
+    color: var(--background-color);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+}
+
+
+
+
+/* Large Screens (800px and above) */
+@media screen and (min-width: 767px) {
+  .container {
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-top: 30px;
+    justify-content: space-evenly;
+  }
+
+  .hero {
+    max-width: 350px;
+    width: 350px;
+  }
+
+  .description {
+    text-align: center;
+    margin: auto;
+  }
+
+  .colorMode {
+    right: -100px; /* Corrected 'pz' to 'px' */
+  }
+}
+
+/* Extra Large Screens (1400px and above) */
+@media screen and (min-width: 1400px) {
+  .hero {
+    max-width: 400px;
+    width: 400px;
+  }
+}
+
+/* General Styles for Body and Root */
+body {
+  background-color: var(--background-color);
+  display: flex;
+  padding-top: 40px; /* Corrected padding */
+  justify-content: center;
+  margin: 10px auto 60px;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+h1,
+h2,
+h3,
+p {
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+h2,
+h3,
+p {
+  font-family: 'Roboto Mono', monospace;
+}
+
+h1,
+h2 {
+  text-transform: uppercase;
+}
+
+h2,
+h3 {
+  font-size: 20px;
+}
+
+h1 {
+  font-family: 'Rubik', sans-serif;
+  font-size: 32px;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.sectionTitle {
+  margin-bottom: 30px;
+}
+
+.hover {
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  #root {
+    gap: 100px;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  h2,
+  h3 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 20px;
+  }
+
+  .sectionTitle {
+    margin-bottom: 60px;
+  }
+}
+
+@media (min-width: 1400px) {
+  #root {
+    gap: 200px;
+  }
+
+  h1 {
+    font-size: 48px;
+  }
+
+  .sectionTitle {
+    margin-bottom: 75px;
+  }
+}
